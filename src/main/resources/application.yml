@@ -11,6 +11,13 @@ spring:
       connection:
         connect-timeout: 10s
         init-query-timeout: 10s
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  main:
+    allow-circular-references: true
 
 
 datastax.astra:

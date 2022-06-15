@@ -1,4 +1,7 @@
-#spring.data.cassandra.local-datacenter=datacenter1
+datadump.location:
+  authordump: /Users/rohitbhatt/Desktop/Learn/Cassandra-SpringBoot/Repo/betterreads-data-loader/src/main/resources/test-authors.txt
+  worksdump: /Users/rohitbhatt/Desktop/Learn/Cassandra-SpringBoot/Repo/betterreads-data-loader/src/main/resources/test-works.txt
+
 spring:
   data:
     cassandra:
@@ -6,6 +9,7 @@ spring:
       username: hwIsihEzykcZosZYiyrkXSRb
       password: _MEOm0CdZ2Z_+io.PL-du.oxoGFB4WB3+9cLAQ2KaEB3c1btrdZoaP-ZwGnN-4tTpjFSzcF_QspEkvg486r7p-Ur.8G4UhJ.muXIXC,2JTRqBR+m+vvfhB+bSblFDmv9
       schema-action: create-if-not-exists
+#      schema-action: recreate
       request:
         timeout: 10s
       connection:
@@ -18,7 +22,6 @@ spring:
         format_sql: true
   main:
     allow-circular-references: true
-
 
 datastax.astra:
   secure-connect-bundle: secure-connect.zip

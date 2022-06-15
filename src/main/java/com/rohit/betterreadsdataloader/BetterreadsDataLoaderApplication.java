@@ -3,6 +3,7 @@ package com.rohit.betterreadsdataloader;
 import com.rohit.betterreadsdataloader.author.Author;
 import com.rohit.betterreadsdataloader.author.AuthorService;
 import com.rohit.betterreadsdataloader.connection.DataStaxAstraProperties;
+import com.rohit.betterreadsdataloader.loader.DataLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,7 +19,7 @@ import java.nio.file.Path;
 public class BetterreadsDataLoaderApplication {
 
     @Autowired
-    AuthorService authorService;
+    DataLoader dataLoader;
 
 	public static void main(String[] args) {
 		SpringApplication.run(BetterreadsDataLoaderApplication.class, args);
@@ -27,12 +28,8 @@ public class BetterreadsDataLoaderApplication {
 	@PostConstruct
 	public void start(){
 	    System.out.println("Application Started");
-        Author author = new Author();
-        author.setId("A123");
-        author.setName("Rohit");
-        author.setPersonalName("Anshu");
-
-        authorService.save(author);
+//        dataLoader.loadAuthors();
+//        dataLoader.loadWorks();
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.rohit.betterreadsdataloader.author;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
 import org.springframework.data.cassandra.core.mapping.CassandraType;
@@ -7,6 +8,7 @@ import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.core.mapping.Table;
 
+//@JsonIgnoreProperties(ignoreUnknown = true)
 @Table(value = "author_by_id")
 public class Author {
 
@@ -20,6 +22,12 @@ public class Author {
     @Column("personal_name")
     @CassandraType(type = CassandraType.Name.TEXT)
     private String personalName;
+
+    public Author(String id, String name, String personalName) {
+        this.id = id;
+        this.name = name;
+        this.personalName = personalName;
+    }
 
     public String getId() {
         return id;
@@ -43,5 +51,14 @@ public class Author {
 
     public void setPersonalName(String personalName) {
         this.personalName = personalName;
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", personalName='" + personalName + '\'' +
+                '}';
     }
 }
